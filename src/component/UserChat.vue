@@ -53,6 +53,9 @@
       }
       messages.value.push(msg);
     });
+    socket.on("reconnect_attempt", (attempt: number) => {
+      console.log(`尝试重连，第${attempt}次`)
+    })
     onUnmounted(() => {
       socket.disconnect();
     })
